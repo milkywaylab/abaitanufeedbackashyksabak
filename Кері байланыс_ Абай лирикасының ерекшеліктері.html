@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Кері байланыс — Абай лирикасының ерекшеліктері</title>
+    <!-- Қазақ әліпбиінің (Ә, Ғ, Қ, Ң, Ө, Ұ, Ү, Һ, І) таза әрі әдемі көрінуі үшін арнайы шрифттер -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,400&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Жылы, табиғи әрі көзді шаршатпайтын түстер палитрасы */
+            --bg-cream: #FAF7F2;
+            --bg-paper: #FFFFFF;
+            --text-ink: #2C2925;
+            --text-muted: #6E685F;
+            --border-soft: #E8E1D5;
+
+            /* Үш деңгейге арналған биязы, үйлесімді реңктер */
+            --sage-main: #3D7A5D;
+            --sage-light: #EEF6F2;
+            --sage-border: #C3DFD1;
+
+            --amber-main: #C8832B;
+            --amber-light: #FDF6EC;
+            --amber-border: #F2D7B1;
+
+            --terracotta-main: #C45D47;
+            --terracotta-light: #FDF1EE;
+            --terracotta-border: #F0C6BD;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        body {
+            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-ink);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Жоғарғы және төменгі жиектегі жеңіл ұлттық геометриялық өрнек жолағы */
+        .ornament-bar {
+            height: 10px;
+            width: 100%;
+            background-color: var(--bg-cream);
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='10' viewBox='0 0 40 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 5 Q 5 0, 10 5 T 20 5 T 30 5 T 40 5' fill='none' stroke='%23C8832B' stroke-width='1.4' stroke-opacity='0.35'/%3E%3Ccircle cx='10' cy='5' r='1.2' fill='%233D7A5D' fill-opacity='0.4'/%3E%3Ccircle cx='30' cy='5' r='1.2' fill='%23C45D47' fill-opacity='0.4'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+        }
+
+        /* Негізгі контейнер */
+        .container {
+            max-width: 1240px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        /* Жоғарғы тақырып пен дыбыс батырмасы */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            padding-top: 0.5rem;
+        }
+
+        .title-block {
+            flex: 1;
+        }
+
+        .lesson-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--amber-main);
+            background: var(--amber-light);
+            border: 1px solid var(--amber-border);
+            padding: 0.35rem 0.9rem;
+            border-radius: 999px;
+            margin-bottom: 0.75rem;
+        }
+
+        h1 {
+            font-family: 'Lora', Georgia, serif;
+            font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text-ink);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* Дыбыс батырмасы */
+        .sound-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            background: var(--bg-paper);
+            border: 1.5px solid var(--border-soft);
+            color: var(--text-ink);
+            padding: 0.65rem 1.15rem;
+            border-radius: 14px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(44, 41, 37, 0.04);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .sound-btn:hover {
+            border-color: #CFC5B4;
+            transform: translateY(-1px);
+        }
+
+        .sound-btn:active {
+            transform: scale(0.97);
+        }
+
+        .sound-btn.muted {
+            color: var(--text-muted);
+            background: #F4F0E8;
+        }
+
+        /* Үш таңдау карточкасы орналасқан тор */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: auto 0;
+        }
+
+        .feedback-card {
+            position: relative;
+            background: var(--bg-paper);
+            border: 2px solid var(--border-soft);
+            border-radius: 26px;
+            padding: 2.2rem 1.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(44, 41, 37, 0.045);
+            transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.18s ease,
+                        border-color 0.2s ease;
+            overflow: hidden;
+            touch-action: manipulation;
+        }
+
+        .feedback-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 30px rgba(44, 41, 37, 0.08);
+        }
+
+        .feedback-card:active,
+        .feedback-card.is-tapped {
+            transform: scale(0.965);
+        }
+
+        /* Карточкалардың жеке түс екпіндері */
+        .card-sage {
+            border-color: var(--sage-border);
+        }
+        .card-sage:hover {
+            border-color: var(--sage-main);
+        }
+        .card-sage .icon-circle {
+            background: var(--sage-light);
+            color: var(--sage-main);
+        }
+        .card-sage .count-number {
+            color: var(--sage-main);
+        }
+
+        .card-amber {
+            border-color: var(--amber-border);
+        }
+        .card-amber:hover {
+            border-color: var(--amber-main);
+        }
+        .card-amber .icon-circle {
+            background: var(--amber-light);
+            color: var(--amber-main);
+        }
+        .card-amber .count-number {
+            color: var(--amber-main);
+        }
+
+        .card-terracotta {
+            border-color: var(--terracotta-border);
+        }
+        .card-terracotta:hover {
+            border-color: var(--terracotta-main);
+        }
+        .card-terracotta .icon-circle {
+            background: var(--terracotta-light);
+            color: var(--terracotta-main);
+        }
+        .card-terracotta .count-number {
+            color: var(--terracotta-main);
+        }
+
+        /* Карточка ішіндегі белгіше */
+        .icon-circle {
+            width: 76px;
+            height: 76px;
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.35rem;
+            transition: transform 0.25s ease;
+        }
+
+        .feedback-card:hover .icon-circle {
+            transform: scale(1.06);
+        }
+
+        .card-title {
+            font-family: 'Lora', Georgia, serif;
+            font-size: clamp(1.35rem, 1.9vw, 1.65rem);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 0.65rem;
+            color: var(--text-ink);
+        }
+
+        .card-desc {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--text-muted);
+            margin-bottom: 1.75rem;
+            max-width: 28ch;
+        }
+
+        /* Есептегіш бөлігі */
+        .counter-box {
+            margin-top: auto;
+            width: 100%;
+            padding-top: 1.25rem;
+            border-top: 1.5px dashed var(--border-soft);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .count-number {
+            font-size: clamp(2.4rem, 3.6vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1;
+            display: inline-block;
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .count-number.bump {
+            transform: scale(1.26);
+        }
+
+        .count-meta {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        /* Түрткен кезде ұшатын +1 анимациясы */
+        .floating-plus {
+            position: absolute;
+            font-size: 1.55rem;
+            font-weight: 800;
+            pointer-events: none;
+            animation: floatUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            z-index: 10;
+        }
+
+        @keyframes floatUp {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, 0) scale(0.8);
+            }
+            60% {
+                opacity: 1;
+                transform: translate(-50%, -48px) scale(1.15);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -72px) scale(1);
+            }
+        }
+
+        /* Түрткен кезде тарайтын толқын (Ripple) */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: rippleEffect 0.65s ease-out forwards;
+            pointer-events: none;
+            opacity: 0.22;
+        }
+
+        @keyframes rippleEffect {
+            to {
+                transform: scale(3.2);
+                opacity: 0;
+            }
+        }
+
+        /* Төменгі қорытынды панель */
+        footer.summary-panel {
+            background: var(--bg-paper);
+            border: 1.5px solid var(--border-soft);
+            border-radius: 22px;
+            padding: 1.25rem 1.75rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.25rem;
+            box-shadow: 0 4px 16px rgba(44, 41, 37, 0.03);
+        }
+
+        .total-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .total-label {
+            font-size: 1.1rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .total-label span {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--text-ink);
+        }
+
+        /* Үш түсті үлес жолағы */
+        .progress-track {
+            flex: 1;
+            height: 14px;
+            background: #EFECE6;
+            border-radius: 999px;
+            overflow: hidden;
+            display: flex;
+            min-width: 140px;
+        }
+
+        .progress-seg {
+            height: 100%;
+            width: 0%;
+            transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .seg-sage { background-color: var(--sage-main); }
+        .seg-amber { background-color: var(--amber-main); }
+        .seg-terracotta { background-color: var(--terracotta-main); }
+
+        /* Нөлдеу батырмасы және растау блогы */
+        .reset-area {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+        }
+
+        .reset-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: transparent;
+            border: 1.5px solid var(--border-soft);
+            color: var(--text-muted);
+            padding: 0.6rem 1.1rem;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .reset-btn:hover {
+            border-color: var(--terracotta-border);
+            color: var(--terracotta-main);
+            background: var(--terracotta-light);
+        }
+
+        .confirm-box {
+            display: none;
+            align-items: center;
+            gap: 0.6rem;
+            background: #FDF8F6;
+            border: 1.5px solid var(--terracotta-border);
+            padding: 0.45rem 0.85rem;
+            border-radius: 14px;
+            animation: fadeIn 0.2s ease;
+        }
+
+        .confirm-box.active {
+            display: flex;
+        }
+
+        .confirm-text {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--text-ink);
+        }
+
+        .confirm-yes {
+            background: var(--terracotta-main);
+            color: #FFF;
+            border: none;
+            padding: 0.4rem 0.85rem;
+            border-radius: 9px;
+            font-family: inherit;
+            font-size: 0.88rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .confirm-no {
+            background: #EDE8DF;
+            color: var(--text-ink);
+            border: none;
+            padding: 0.4rem 0.85rem;
+            border-radius: 9px;
+            font-family: inherit;
+            font-size: 0.88rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(3px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Ұялы телефон мен тар экрандарға бейімделу */
+        @media (max-width: 900px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .feedback-card {
+                flex-direction: row;
+                text-align: left;
+                padding: 1.25rem 1.4rem;
+                gap: 1.15rem;
+            }
+            .icon-circle {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 0;
+                flex-shrink: 0;
+            }
+            .card-body {
+                flex: 1;
+            }
+            .card-desc {
+                margin-bottom: 0;
+                font-size: 0.92rem;
+            }
+            .counter-box {
+                width: auto;
+                margin-top: 0;
+                padding-top: 0;
+                padding-left: 1rem;
+                border-top: none;
+                border-left: 1.5px dashed var(--border-soft);
+                min-width: 85px;
+            }
+            .container {
+                padding: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ornament-bar" aria-hidden="true"></div>
+
+    <div class="container">
+        <!-- Тақырып бөлімі -->
+        <header>
+            <div class="title-block">
+                <div class="lesson-badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                    </svg>
+                    Қазақ әдебиеті · Кері байланыс
+                </div>
+                <h1>Абай лирикасының ерекшеліктері</h1>
+                <p class="subtitle">Сабақтан алған әсерің мен тақырыпты меңгеру деңгейіңді белгіле</p>
+            </div>
+
+            <button type="button" id="soundToggle" class="sound-btn" aria-label="Дыбысты қосу немесе өшіру">
+                <svg id="soundIconOn" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                </svg>
+                <svg id="soundIconOff" style="display:none;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <line x1="23" y1="9" x2="17" y2="15"></line>
+                    <line x1="17" y1="9" x2="23" y2="15"></line>
+                </svg>
+                <span id="soundLabel">Дыбыс: Қосулы</span>
+            </button>
+        </header>
+
+        <!-- Оқушылар басатын 3 негізгі карточка -->
+        <main class="cards-grid" role="group" aria-label="Бағалау нұсқалары">
+            
+            <!-- 1-нұсқа: Толық меңгердім -->
+            <div class="feedback-card card-sage" data-option="high" role="button" tabindex="0">
+                <div class="icon-circle">
+                    <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                </div>
+                <div class="card-body">
+                    <h2 class="card-title">Тақырыпты толық меңгердім</h2>
+                    <p class="card-desc">Абай өлеңдерінің мәні мен ерекшелігін еркін түсіндім</p>
+                </div>
+                <div class="counter-box">
+                    <span class="count-number" id="count-high">0</span>
+                    <span class="count-meta" id="meta-high">0 дауыс · 0%</span>
+                </div>
+            </div>
+
+            <!-- 2-нұсқа: Аздап сұрақтарым бар -->
+            <div class="feedback-card card-amber" data-option="mid" role="button" tabindex="0">
+                <div class="icon-circle">
+                    <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                </div>
+                <div class="card-body">
+                    <h2 class="card-title">Аздап сұрақтарым бар</h2>
+                    <p class="card-desc">Негізгі ойын ұқтым, бірақ кей тұстарын пысықтау керек</p>
+                </div>
+                <div class="counter-box">
+                    <span class="count-number" id="count-mid">0</span>
+                    <span class="count-meta" id="meta-mid">0 дауыс · 0%</span>
+                </div>
+            </div>
+
+            <!-- 3-нұсқа: Әлі де ізденуім қажет -->
+            <div class="feedback-card card-terracotta" data-option="low" role="button" tabindex="0">
+                <div class="icon-circle">
+                    <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 20h9"></path>
+                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                    </svg>
+                </div>
+                <div class="card-body">
+                    <h2 class="card-title">Әлі де ізденуім қажет</h2>
+                    <p class="card-desc">Тақырыпты қайта қарап, қосымша дайындалуым керек</p>
+                </div>
+                <div class="counter-box">
+                    <span class="count-number" id="count-low">0</span>
+                    <span class="count-meta" id="meta-low">0 дауыс · 0%</span>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Төменгі жалпы статистика және нөлдеу панелі -->
+        <footer class="summary-panel">
+            <div class="total-info">
+                <div class="total-label">Барлығы: <span id="total-count">0</span> оқушы</div>
+                <div class="progress-track" aria-hidden="true">
+                    <div class="progress-seg seg-sage" id="bar-high"></div>
+                    <div class="progress-seg seg-amber" id="bar-mid"></div>
+                    <div class="progress-seg seg-terracotta" id="bar-low"></div>
+                </div>
+            </div>
+
+            <div class="reset-area">
+                <button type="button" id="resetTrigger" class="reset-btn">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                        <path d="M3 3v5h5"></path>
+                    </svg>
+                    Нәтижені нөлдеу
+                </button>
+
+                <div id="confirmBox" class="confirm-box">
+                    <span class="confirm-text">Барлық көрсеткішті нөлдейміз бе?</span>
+                    <button type="button" id="confirmYes" class="confirm-yes">Иә, нөлдеу</button>
+                    <button type="button" id="confirmNo" class="confirm-no">Жоқ</button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="ornament-bar" aria-hidden="true"></div>
+
+    <script>
+        (function () {
+            'use strict';
+
+            // Бастапқы күй (localStorage-тен оқу, қате болса нөлден бастау)
+            const STORAGE_KEY = 'abai_lyric_feedback_v1';
+            let state = {
+                high: 0,
+                mid: 0,
+                low: 0,
+                soundEnabled: true
+            };
+
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    state.high = Number(parsed.high) || 0;
+                    state.mid = Number(parsed.mid) || 0;
+                    state.low = Number(parsed.low) || 0;
+                    if (typeof parsed.soundEnabled === 'boolean') {
+                        state.soundEnabled = parsed.soundEnabled;
+                    }
+                }
+            } catch (e) {
+                console.warn('Сақталған деректерді оқу мүмкін болмады:', e);
+            }
+
+            function saveState() {
+                try {
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+                } catch (e) {
+                    // Жергілікті жад шектелген жағдайда үнсіз жалғастыру
+                }
+            }
+
+            // Web Audio API — сыртқы файлсыз таза, жұмсақ дыбыстық әсерлер
+            let audioCtx = null;
+
+            function getAudioContext() {
+                if (!audioCtx) {
+                    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                    if (AudioContextClass) {
+                        audioCtx = new AudioContextClass();
+                    }
+                }
+                if (audioCtx && audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                return audioCtx;
+            }
+
+            // Белгілі бір жиілікте жұмсақ нота ойнату (домбыра/ксилофон тәрізді жылы тембр)
+            function playTone(freq, startTime, duration, volume = 0.16, type = 'sine') {
+                const ctx = getAudioContext();
+                if (!ctx) return;
+
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+
+                osc.type = type;
+                osc.frequency.setValueAtTime(freq, startTime);
+
+                // Жұмсақ басталу және баяу өшу (сыртылсыз)
+                gain.gain.setValueAtTime(0.0001, startTime);
+                gain.gain.exponentialRampToValueAtTime(volume, startTime + 0.025);
+                gain.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
+
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+
+                osc.start(startTime);
+                osc.stop(startTime + duration + 0.02);
+            }
+
+            function playFeedbackSound(option) {
+                if (!state.soundEnabled) return;
+                const ctx = getAudioContext();
+                if (!ctx) return;
+
+                const now = ctx.currentTime;
+
+                if (option === 'high') {
+                    // Жарқын, көтеріңкі мажорлық үшдыбыстық (C5 - E5 - G5)
+                    playTone(523.25, now, 0.35, 0.15, 'sine');
+                    playTone(659.25, now + 0.07, 0.4, 0.14, 'sine');
+                    playTone(783.99, now + 0.14, 0.55, 0.16, 'triangle');
+                } else if (option === 'mid') {
+                    // Сабырлы, қолдаушы екі ноталы жылы үн (D5 - A4 -> E5)
+                    playTone(440.00, now, 0.32, 0.15, 'sine');
+                    playTone(554.37, now + 0.09, 0.45, 0.14, 'triangle');
+                } else if (option === 'low') {
+                    // Жігерлендіретін, жұмсақ әрі жылы қоңыр үн (G4 - B4)
+                    playTone(392.00, now, 0.35, 0.16, 'sine');
+                    playTone(493.88, now + 0.1, 0.48, 0.14, 'sine');
+                }
+            }
+
+            function playResetSound() {
+                if (!state.soundEnabled) return;
+                const ctx = getAudioContext();
+                if (!ctx) return;
+
+                const now = ctx.currentTime;
+                playTone(440.00, now, 0.2, 0.1, 'sine');
+                playTone(329.63, now + 0.08, 0.28, 0.1, 'sine');
+            }
+
+            // DOM элементтерін жаңарту
+            const cards = document.querySelectorAll('.feedback-card');
+            const soundToggle = document.getElementById('soundToggle');
+            const soundLabel = document.getElementById('soundLabel');
+            const soundIconOn = document.getElementById('soundIconOn');
+            const soundIconOff = document.getElementById('soundIconOff');
+
+            const resetTrigger = document.getElementById('resetTrigger');
+            const confirmBox = document.getElementById('confirmBox');
+            const confirmYes = document.getElementById('confirmYes');
+            const confirmNo = document.getElementById('confirmNo');
+
+            function updateSoundUI() {
+                if (state.soundEnabled) {
+                    soundToggle.classList.remove('muted');
+                    soundLabel.textContent = 'Дыбыс: Қосулы';
+                    soundIconOn.style.display = 'inline';
+                    soundIconOff.style.display = 'none';
+                } else {
+                    soundToggle.classList.add('muted');
+                    soundLabel.textContent = 'Дыбыс: Өшірулі';
+                    soundIconOn.style.display = 'none';
+                    soundIconOff.style.display = 'inline';
+                }
+            }
+
+            function renderCounts(animatedOption = null) {
+                const total = state.high + state.mid + state.low;
+
+                const pctHigh = total > 0 ? Math.round((state.high / total) * 100) : 0;
+                const pctMid = total > 0 ? Math.round((state.mid / total) * 100) : 0;
+                const pctLow = total > 0 ? Math.round((state.low / total) * 100) : 0;
+
+                document.getElementById('count-high').textContent = state.high;
+                document.getElementById('meta-high').textContent = `${state.high} дауыс · ${pctHigh}%`;
+
+                document.getElementById('count-mid').textContent = state.mid;
+                document.getElementById('meta-mid').textContent = `${state.mid} дауыс · ${pctMid}%`;
+
+                document.getElementById('count-low').textContent = state.low;
+                document.getElementById('meta-low').textContent = `${state.low} дауыс · ${pctLow}%`;
+
+                document.getElementById('total-count').textContent = total;
+
+                // Үлес жолағын жаңарту
+                document.getElementById('bar-high').style.width = total > 0 ? `${(state.high / total) * 100}%` : '0%';
+                document.getElementById('bar-mid').style.width = total > 0 ? `${(state.mid / total) * 100}%` : '0%';
+                document.getElementById('bar-low').style.width = total > 0 ? `${(state.low / total) * 100}%` : '0%';
+
+                // Басылған санның секіру анимациясы
+                if (animatedOption) {
+                    const numEl = document.getElementById(`count-${animatedOption}`);
+                    if (numEl) {
+                        numEl.classList.remove('bump');
+                        void numEl.offsetWidth; // Reflow
+                        numEl.classList.add('bump');
+                        setTimeout(() => numEl.classList.remove('bump'), 220);
+                    }
+                }
+            }
+
+            // Визуалды толқын және +1 әсері
+            function triggerVisualEffect(card, event, option) {
+                const rect = card.getBoundingClientRect();
+                let x = rect.width / 2;
+                let y = rect.height / 2;
+
+                if (event && typeof event.clientX === 'number' && event.clientX > 0) {
+                    x = event.clientX - rect.left;
+                    y = event.clientY - rect.top;
+                }
+
+                const colorMap = {
+                    high: '#3D7A5D',
+                    mid: '#C8832B',
+                    low: '#C45D47'
+                };
+                const accentColor = colorMap[option] || '#3D7A5D';
+
+                // Толқын (Ripple)
+                const ripple = document.createElement('span');
+                ripple.className = 'ripple';
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = `${size}px`;
+                ripple.style.left = `${x - size / 2}px`;
+                ripple.style.top = `${y - size / 2}px`;
+                ripple.style.backgroundColor = accentColor;
+                card.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 650);
+
+                // +1 белгісі
+                const plus = document.createElement('span');
+                plus.className = 'floating-plus';
+                plus.textContent = '+1';
+                plus.style.left = `${x}px`;
+                plus.style.top = `${Math.max(30, y - 15)}px`;
+                plus.style.color = accentColor;
+                card.appendChild(plus);
+                setTimeout(() => plus.remove(), 750);
+
+                // Карточканың қысқаша басылу күйі
+                card.classList.add('is-tapped');
+                setTimeout(() => card.classList.remove('is-tapped'), 160);
+            }
+
+            // Интерактивті тақта сенсорының кездейсоқ қос басылуынан (дребезг) қорғау (260 мс)
+            const lastTapTime = { high: 0, mid: 0, low: 0 };
+            const COOLDOWN_MS = 260;
+
+            cards.forEach((card) => {
+                const option = card.getAttribute('data-option');
+
+                const handleTap = (e) => {
+                    const now = Date.now();
+                    if (now - lastTapTime[option] < COOLDOWN_MS) {
+                        return;
+                    }
+                    lastTapTime[option] = now;
+
+                    state[option] += 1;
+                    saveState();
+                    renderCounts(option);
+                    triggerVisualEffect(card, e, option);
+                    playFeedbackSound(option);
+
+                    // Егер нөлдеуді растау терезесі ашық тұрса, жауып қою
+                    if (confirmBox.classList.contains('active')) {
+                        confirmBox.classList.remove('active');
+                        resetTrigger.style.display = 'inline-flex';
+                    }
+                };
+
+                card.addEventListener('click', handleTap);
+                card.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        handleTap(e);
+                    }
+                });
+            });
+
+            // Дыбысты қосу / өшіру
+            soundToggle.addEventListener('click', () => {
+                state.soundEnabled = !state.soundEnabled;
+                saveState();
+                updateSoundUI();
+                if (state.soundEnabled) {
+                    playTone(587.33, getAudioContext().currentTime, 0.25, 0.12, 'sine');
+                }
+            });
+
+            // Нөлдеу логикасы (кездейсоқ басылып кетпес үшін растаумен)
+            resetTrigger.addEventListener('click', () => {
+                resetTrigger.style.display = 'none';
+                confirmBox.classList.add('active');
+            });
+
+            confirmNo.addEventListener('click', () => {
+                confirmBox.classList.remove('active');
+                resetTrigger.style.display = 'inline-flex';
+            });
+
+            confirmYes.addEventListener('click', () => {
+                state.high = 0;
+                state.mid = 0;
+                state.low = 0;
+                saveState();
+                renderCounts();
+                playResetSound();
+
+                confirmBox.classList.remove('active');
+                resetTrigger.style.display = 'inline-flex';
+            });
+
+            // Алғашқы жүктелу кезінде интерфейсті реттеу
+            updateSoundUI();
+            renderCounts();
+        })();
+    </script>
+</body>
+</html>
